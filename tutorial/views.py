@@ -8,11 +8,14 @@ from tutorial.models import Tutorial
 from tutorial.serializers import TutorialSerializer
 from rest_framework.decorators import api_view
 from rest_framework.permissions import IsAuthenticated
+from .permissions import IsAdminOrReadOnly
 
 
 @api_view(['GET', 'POST', 'DELETE'])
 def tutorial_list(request):
     permission_classes = (IsAuthenticated)
+
+    permission_classes = (IsAdminOrReadOnly,)
     if request.method == 'GET':
         tutorials = Tutorial.objects.all()
 
