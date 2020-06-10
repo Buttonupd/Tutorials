@@ -13,6 +13,9 @@ class Tutorial(models.Model):
     updated_on = models.TimeField(null=True, blank=True)
     editor = models.ForeignKey(User,on_delete=models.CASCADE, default=True) 
 
+    def __str__(self):
+        return self.title
+
 
 
 
