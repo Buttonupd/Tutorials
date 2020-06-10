@@ -8,6 +8,9 @@ class TutorialSerializer(serializers.ModelSerializer):
             'id',
             'title',
             'description',
-            'published'
+            'published',
+            'author',
+            'tutorial_image',
+            'editor',
         )
 
